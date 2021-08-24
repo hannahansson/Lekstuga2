@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lekstuga2", "Lekstuga2\Lekstuga2.csproj", "{790DA444-D5FA-4069-8447-FDCB5A568B8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{790DA444-D5FA-4069-8447-FDCB5A568B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{790DA444-D5FA-4069-8447-FDCB5A568B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{790DA444-D5FA-4069-8447-FDCB5A568B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{790DA444-D5FA-4069-8447-FDCB5A568B8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDD21972-A7BD-49F2-86DC-B84971C60C25}
+	EndGlobalSection
+EndGlobal
