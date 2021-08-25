@@ -42,6 +42,22 @@ namespace Lekstuga2
             }
             Assert.Equal(expected: "Beer", actual: purchasedDrink);
         }
+        [Fact]
+        public void TestIntToChar()
+        {
+            char testCh = IntToChar(65);
+            Assert.Equal(expected:'A', actual:testCh);
+
+            testCh = IntToChar(122);
+            Assert.Equal(expected:'z', actual:testCh);
+        }
+
+        public char IntToChar(int siffra)
+        {
+            char ch = (char) siffra;
+
+            return ch;
+        }
 
            [Fact]
             public void AnotherTest()
