@@ -66,6 +66,7 @@ namespace Lekstuga2
                 Assert.False(false);
         }
 
+        //Kata1
         [Fact]
         public void TestIntToChar()
         {
@@ -87,9 +88,10 @@ namespace Lekstuga2
 
         public void Count()
         {
-            for (int i = 0; i < 100000; i++);
+            for (int i = 0; i < 100000; i++) ;
         }
 
+        //Kata2
         [Fact]
         public void CallMe100_000TimesTest()
         {
@@ -104,104 +106,130 @@ namespace Lekstuga2
         }
 
         int counterCallMe = 0;
+
         public void CallMe()
         {
             counterCallMe += 1;
         }
-    
-        [Fact]
-        public void AnotherTest() 
-            {
-            Assert.True(true);
-            Assert.Equal(expected: 5, 5);
-            Assert.False(false);
-        }
 
+        // Method Kata 3
         [Fact]
-        public void VariableTest()
+        public void MethodChainTest()
         {
-            string name = "Hanna";
+            Assert.Equal("", lvlOrder);
 
-            Assert.Equal(expected: "Hanna", actual: name);
+            {
+                // Koppla ihop metoderna så det blir ordningen som nedan
+                MethodLvl1();
+                MethodLvl2();
+                MethodLvl3();
+                MethodLvl4();
+                lvlOrder += " ";
+                MethodLvl3();
+                MethodLvl2();
+                MethodLvl1();
+            }
+
+            Assert.Equal("lvl1 lvl2 lvl3 lvl4 lvl3 lvl2 lvl1 ", lvlOrder);
         }
 
+        private string lvlOrder = "";
+
+        public void MethodLvl1()
+        {
+            lvlOrder += "lvl1 ";
+        }
+
+        public void MethodLvl2()
+        {
+            lvlOrder += "lvl2 ";
+        }
+
+        public void MethodLvl3()
+        {
+            lvlOrder += "lvl3 ";
+        }
+
+        public void MethodLvl4()
+        {
+            lvlOrder += "lvl4";
+        }
     }
-}
 
-
-namespace tester
-{
-
-    public class KataSumOfPositive
+    namespace tester
     {
-        public static int PositiveSum(int[] arr)
+
+        public class KataSumOfPositive
         {
-            int sum = 0;
-            foreach (int i in arr)
+            public static int PositiveSum(int[] arr)
             {
-                if (i > 0)
+                int sum = 0;
+                foreach (int i in arr)
                 {
-                    sum += i;
+                    if (i > 0)
+                    {
+                        sum += i;
+                    }
+                }
+
+                return sum;
+            }
+
+            [Fact]
+            public void Katas1()
+            {
+                int sum = KataSumOfPositive.PositiveSum(arr: new int[] {1, 2, 3, 4, 5});
+
+                Assert.Equal(expected: 15, actual: sum);
+            }
+
+            [Fact]
+            public bool CanDrinkAlcohol()
+            {
+                int age = 0;
+
+                if (age >= 18)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
 
-            return sum;
-        }
-
-        [Fact]
-        public void Katas1()
-        {
-            int sum = KataSumOfPositive.PositiveSum(arr: new int[] {1, 2, 3, 4, 5});
-
-            Assert.Equal(expected: 15, actual: sum);
-        }
-
-        [Fact]
-        public bool CanDrinkAlcohol()
-        {
-            int age = 0;
-
-            if (age >= 18)
+            [Fact]
+            public bool CanDrickAlcohol()
             {
-                return true;
+                string nationality = "USA, Sverige";
+                int drinkingAge;
+                int age = 18;
+
+                switch (nationality)
+                {
+                    case "USA":
+                        drinkingAge = 21;
+                        break;
+
+                    case "Sverige":
+                        drinkingAge = 18;
+                        break;
+
+                    default:
+                        drinkingAge = 18;
+                        break;
+                }
+
+                if (age >= drinkingAge)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
-            else
-            {
-                return false;
-            }
-        }
-
-        [Fact]
-        public bool CanDrickAlcohol()
-        {
-            string nationality = "USA, Sverige";
-            int drinkingAge;
-            int age = 18;
-
-            switch (nationality)
-            {
-                case "USA":
-                    drinkingAge = 21;
-                    break;
-
-                case "Sverige":
-                    drinkingAge = 18;
-                    break;
-
-                default:
-                    drinkingAge = 18;
-                    break;
-            }
-
-            if (age >= drinkingAge)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
         }
     }
 }
