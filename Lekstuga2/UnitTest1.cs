@@ -154,9 +154,25 @@ namespace Lekstuga2
         {
             lvlOrder += "lvl4";
         }
-    }
 
-    namespace tester
+    // Method Kata 4
+    [Fact]
+    public void OändligaAnrop()
+    {
+    // sätt A att kalla på B och viseversa
+    // och steppa och se vad som händer :D
+    }
+    public void MethodA()
+    {
+      MethodB();
+    }
+    public void MethodB()
+    {
+      MethodA();
+    }
+}
+
+namespace tester
     {
 
         public class KataSumOfPositive
