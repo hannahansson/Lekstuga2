@@ -95,7 +95,10 @@ namespace Lekstuga2
         {
             Assert.Equal(0, counterCallMe);
 
-            for(int i = 0; i < counterCallMe; i++)
+            for (int i = 0; i < 100000; i++)
+            {
+                CallMe();
+            }
 
             Assert.Equal(100_000, counterCallMe);
         }
