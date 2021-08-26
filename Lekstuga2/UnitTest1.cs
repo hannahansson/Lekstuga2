@@ -1,5 +1,7 @@
 using System;
 using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using Xunit;
 using Xunit.Sdk;
 
@@ -49,10 +51,10 @@ namespace Lekstuga2
         [Fact]
         public void Age()
         {
-            string CanDrinkAlcohol;
+            string CanDrinkAlcohol4;
             int age = 18;
 
-            if (age > 18)
+            if (age >= 18)
             {
                 Assert.True(true);
 
@@ -97,33 +99,78 @@ namespace Lekstuga2
     }
 }
 
-     namespace tester 
-     {
+namespace tester
+{
 
-         public class KataSumOfPositive
-         {
-             public static int PositiveSum(int[] arr)
-             {
-                 int sum = 0;
-                 foreach (int i in arr)
-                 {
-                     if (i > 0)
-                     {
-                         sum += i;
-                     }
-                 }
-
-                 return sum;
-             }
-
-             [Fact]
-            public void Katas1()
+    public class KataSumOfPositive
+    {
+        public static int PositiveSum(int[] arr)
+        {
+            int sum = 0;
+            foreach (int i in arr)
             {
-                int sum = KataSumOfPositive.PositiveSum(arr: new int[] {1, 2, 3, 4, 5});
+                if (i > 0)
+                {
+                    sum += i;
+                }
+            }
 
-                Assert.Equal(expected: 15, actual: sum);
+            return sum;
+        }
+
+        [Fact]
+        public void Katas1()
+        {
+            int sum = KataSumOfPositive.PositiveSum(arr: new int[] {1, 2, 3, 4, 5});
+
+            Assert.Equal(expected: 15, actual: sum);
+        }
+        [Fact]
+        public bool CanDrinkAlcohol()
+        {
+            int age = 0;
+
+            if (age >= 18)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
+
+        [Fact]
+        public bool CanDrickAlcohol()
+        {
+                string nationality = "USA, Sverige";
+                int drinkingAge;
+                int age = 18;
+
+                switch (nationality) 
+                {
+                    case "USA":
+                        drinkingAge = 21;
+                        break;
+
+                    case "Sverige":
+                        drinkingAge = 18;
+                        break;
+
+                    default:
+                        drinkingAge = 18;
+                        break;
+                }
+
+                if (age >= drinkingAge)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+        }
+
     }
-
-
+}
