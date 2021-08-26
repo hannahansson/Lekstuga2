@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using Xunit;
@@ -82,8 +84,31 @@ namespace Lekstuga2
         }
 
         [Fact]
-        public void AnotherTest()
+
+        public void Count()
         {
+            for (int i = 0; i < 100000; i++);
+        }
+
+        [Fact]
+        public void CallMe100_000TimesTest()
+        {
+            Assert.Equal(0, counterCallMe);
+
+            for(int i = 0; i < counterCallMe; i++)
+
+            Assert.Equal(100_000, counterCallMe);
+        }
+
+        int counterCallMe = 0;
+        public void CallMe()
+        {
+            counterCallMe += 1;
+        }
+    
+        [Fact]
+        public void AnotherTest() 
+            {
             Assert.True(true);
             Assert.Equal(expected: 5, 5);
             Assert.False(false);
@@ -96,8 +121,10 @@ namespace Lekstuga2
 
             Assert.Equal(expected: "Hanna", actual: name);
         }
+
     }
 }
+
 
 namespace tester
 {
@@ -125,6 +152,7 @@ namespace tester
 
             Assert.Equal(expected: 15, actual: sum);
         }
+
         [Fact]
         public bool CanDrinkAlcohol()
         {
@@ -143,34 +171,34 @@ namespace tester
         [Fact]
         public bool CanDrickAlcohol()
         {
-                string nationality = "USA, Sverige";
-                int drinkingAge;
-                int age = 18;
+            string nationality = "USA, Sverige";
+            int drinkingAge;
+            int age = 18;
 
-                switch (nationality) 
-                {
-                    case "USA":
-                        drinkingAge = 21;
-                        break;
+            switch (nationality)
+            {
+                case "USA":
+                    drinkingAge = 21;
+                    break;
 
-                    case "Sverige":
-                        drinkingAge = 18;
-                        break;
+                case "Sverige":
+                    drinkingAge = 18;
+                    break;
 
-                    default:
-                        drinkingAge = 18;
-                        break;
-                }
+                default:
+                    drinkingAge = 18;
+                    break;
+            }
 
-                if (age >= drinkingAge)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+            if (age >= drinkingAge)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
-
     }
 }
