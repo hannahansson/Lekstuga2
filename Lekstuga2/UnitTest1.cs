@@ -1,5 +1,7 @@
 using System;
+using System.Reflection.Metadata;
 using Xunit;
+using Xunit.Sdk;
 
 namespace Lekstuga2
 {
@@ -40,16 +42,34 @@ namespace Lekstuga2
             {
                 purchasedDrink = "Coca-cola";
             }
+
             Assert.Equal(expected: "Beer", actual: purchasedDrink);
         }
+
+        [Fact]
+        public void Age()
+        {
+            string CanDrinkAlcohol;
+            int age = 18;
+
+            if (age > 18)
+            {
+                Assert.True(true);
+
+                // din lösning här
+            }
+            else
+                Assert.False(false);
+        }
+
         [Fact]
         public void TestIntToChar()
         {
-            char testCh = IntToChar(65);
-            Assert.Equal(expected:'A', actual:testCh);
+            char testCh = IntToChar(siffra: 65);
+            Assert.Equal(expected: 'A', actual: testCh);
 
-            testCh = IntToChar(122);
-            Assert.Equal(expected:'z', actual:testCh);
+            testCh = IntToChar(siffra: 122);
+            Assert.Equal(expected: 'z', actual: testCh);
         }
 
         public char IntToChar(int siffra)
@@ -59,23 +79,51 @@ namespace Lekstuga2
             return ch;
         }
 
-           [Fact]
-            public void AnotherTest()
-            {
-                Assert.True(true);
-                Assert.Equal(expected: 5, 5);
-                Assert.False(false);
-            }
+        [Fact]
+        public void AnotherTest()
+        {
+            Assert.True(true);
+            Assert.Equal(expected: 5, 5);
+            Assert.False(false);
+        }
 
-            [Fact]
-            public void VariableTest()
-            {
-                string name = "Hanna";
+        [Fact]
+        public void VariableTest()
+        {
+            string name = "Hanna";
 
-                Assert.Equal(expected: "Hanna", actual: name);
-            }
-
-
+            Assert.Equal(expected: "Hanna", actual: name);
+        }
     }
+}
+
+     namespace tester 
+     {
+
+         public class KataSumOfPositive
+         {
+             public static int PositiveSum(int[] arr)
+             {
+                 int sum = 0;
+                 foreach (int i in arr)
+                 {
+                     if (i > 0)
+                     {
+                         sum += i;
+                     }
+                 }
+
+                 return sum;
+             }
+
+             [Fact]
+            public void Katas1()
+            {
+                int sum = KataSumOfPositive.PositiveSum(arr: new int[] {1, 2, 3, 4, 5});
+
+                Assert.Equal(expected: 15, actual: sum);
+            }
+        }
     }
+
 
