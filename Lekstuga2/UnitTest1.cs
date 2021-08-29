@@ -66,6 +66,18 @@ namespace Lekstuga2
                 Assert.False(false);
         }
 
+        [Fact]
+
+        public void Counters()
+        {
+            int[] Räknare = new int[100];
+
+            for (int i = 0; i < Räknare.Length; i++)
+            {
+                Räknare[i] = 2 + i;
+            }
+        }
+
         //Kata1
         [Fact]
         public void TestIntToChar()
@@ -155,22 +167,26 @@ namespace Lekstuga2
             lvlOrder += "lvl4";
         }
 
-    // Method Kata 4
-    [Fact]
-    public void OändligaAnrop()
-    {
-    // sätt A att kalla på B och viseversa
-    // och steppa och se vad som händer :D
+        // Method Kata 4
+        [Fact]
+        public void OändligaAnrop()
+        {
+            // sätt A att kalla på B och viseversa
+            // och steppa och se vad som händer :D
+        }
+
+        public void MethodA()
+        {
+            MethodB();
+        }
+
+        public void MethodB()
+        {
+            MethodA();
+        }
+        
+        }
     }
-    public void MethodA()
-    {
-      MethodB();
-    }
-    public void MethodB()
-    {
-      MethodA();
-    }
-}
 
 namespace tester
     {
@@ -217,7 +233,7 @@ namespace tester
             [Fact]
             public bool CanDrickAlcohol()
             {
-                string nationality = "USA, Sverige";
+                string nationality = "USA , Sverige";
                 int drinkingAge;
                 int age = 18;
 
@@ -248,4 +264,3 @@ namespace tester
             }
         }
     }
-}
